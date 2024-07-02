@@ -5,13 +5,15 @@ import (
 	"fmt"
 	"log"
 	"strings"
+
+	"github.com/gookit/color"
 )
 
 func (server *Server) handleClient(client Client) {
 	// Host log.
-	log.Printf("Client %s connected\n", client.pseudo)
+	log.Printf(color.LightGreen.Sprintf("Client %s connected\n", client.pseudo))
 	// Notify other clients about new connection
-	server.broadcastMessage(Client{}, fmt.Sprintf("%s has joind the chat...\n", client.pseudo))
+	server.broadcastMessage(Client{}, color.LightGreen.Sprintf("%s has joind the chat...\n", client.pseudo))
 	// Display historic of the conversations.
 	for _, log := range historic {
 		client.conn.Write([]byte("[" + log.Time + "][" + log.Pseudo + "]: " + log.Message))

@@ -2,16 +2,19 @@ package server
 
 import (
 	"bufio"
+
 	"fmt"
 	"log"
 	"net"
 	"strings"
+
+	"github.com/gookit/color"
 )
 
 func (server *Server) Run() {
 	// Start listening for incoming TCP connections on the specified host and port.
 	listener, err := net.Listen("tcp", fmt.Sprintf("%s:%s", server.host, server.port))
-	log.Printf("Listening on port %s", server.port)
+	log.Printf("Listening on port %s %s", server.host, server.port)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -31,7 +34,7 @@ func (server *Server) Run() {
 		welcome := PrintWelcome()
 		client.conn.Write([]byte(welcome))
 		// Ask for pseudo and erase the end of line.
-		client.conn.Write([]byte("[ENTER YOUR PSEUDO]: "))
+		client.conn.Write([]byte(color.LightGreen.Sprintf("[ENTER YOUR PSEUDO]: ")))
 		reader := bufio.NewReader(client.conn)
 		pseudo, _ := reader.ReadString('\n')
 		client.pseudo = strings.TrimRight(pseudo, "\n")

@@ -4,6 +4,8 @@ import (
 	"fmt"
 	"log"
 	"time"
+
+	"github.com/gookit/color"
 )
 
 func (server *Server) broadcastMessage(sender Client, message string) {
@@ -14,14 +16,14 @@ func (server *Server) broadcastMessage(sender Client, message string) {
 	// If sender has a pseudo, broadcast message to all clients with the sender name.
 	if sender.pseudo != "" {
 		// Host log.
-		log.Printf("[%s][%s]: %s", time.Now().Format("2006-01-02 15:04:05"), sender.pseudo, message)
+		log.Printf("[%s][%s]: %s", time.Now().Format("2006-01-02 15:04:05"), color.Magenta.Sprintf(sender.pseudo), message)
 		// Append the message to the historic.
-		historic = append(historic, Logs{time.Now().Format("2006-01-02 15:04:05"), sender.pseudo, message})
+		historic = append(historic, Logs{time.Now().Format("2006-01-02 15:04:05"), color.Magenta.Sprintf(sender.pseudo), message})
 		// Save the logs in a file.
-		SaveLogs(fmt.Sprintf("[%s][%s]: %s", time.Now().Format("2006-01-02 15:04:05"), sender.pseudo, message))
+		SaveLogs(fmt.Sprintf("[%s][%s]: %s", time.Now().Format("2006-01-02 15:04:05"), color.Magenta.Sprintf(sender.pseudo), message))
 		for _, client := range server.clients {
 			// Send formatted message to each client.
-			client.conn.Write([]byte(fmt.Sprintf("[%s][%s]: %s", time.Now().Format("2006-01-02 15:04:05"), sender.pseudo, message)))
+			client.conn.Write([]byte(fmt.Sprintf("[%s][%s]: %s", time.Now().Format("2006-01-02 15:04:05"), color.Magenta.Sprintf(sender.pseudo), color.Red.Sprintf(message))))
 		}
 	} else {
 		// Broadcast message to all clients (used for notifications).

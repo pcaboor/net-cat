@@ -1,21 +1,26 @@
 package server
 
+import (
+	"github.com/gookit/color"
+)
+
 func PrintWelcome() string {
-	return "Welcome to TCP-Chat!\n" +
-		"         _nnnn_\n" +
-		"        dGGGGMMb\n" +
-		"       @p~qp~~qMb\n" +
-		"       M|@||@) M|\n" +
-		"       @,----.JM|\n" +
-		"      JS^\\__/  qKL\n" +
-		"     dZP        qKRb\n" +
-		"    dZP          qKKb\n" +
-		"   fZP            SMMb\n" +
-		"   HZM            MMMM\n" +
-		"   FqM            MMMM\n" +
-		" __| \".        |\\dS\"qML\n" +
-		" |    `.       | `' \\Zq\n" +
-		"_)      \\.___.,|     .'\n" +
-		"\\____   )MMMMMP|   .'\n" +
-		"     `-'       `--'\n"
+	return color.White.Sprintf("Welcome to TCP-Chat!\n") +
+		color.White.Sprintf("         _nnnn_\n") +
+		color.White.Sprintf("        dGGGGMMb\n") +
+		color.White.Sprintf("       @p~qp~~qMb\n") +
+		color.White.Sprintf("       M|@||@) M|\n") +
+		color.LightYellow.Sprintf("       @,----.JM|\n") +
+		color.LightYellow.Sprintf("      JS^\\__/  qKL\n") +
+		color.White.Sprintf("     dZP        qKRb\n") +
+		color.White.Sprintf("    dZP          qKKb\n") +
+		color.White.Sprintf("   fZP            SMMb\n") +
+		color.White.Sprintf("   HZM            MMMM\n") +
+		color.White.Sprintf("   FqM            MMMM\n") +
+		color.LightYellow.Sprintf(" __| \".        |\\dS\"qML\n") +
+		color.LightYellow.Sprintf(" |    `.       | `' \\Zq\n") +
+		color.LightYellow.Sprintf("_)      \\.___.,|     .'\n") +
+		color.HiYellow.Sprintf("\\____   )"+color.White.Sprintf("MMMMMP")+color.HiYellow.Sprintf("|   .'\n")) +
+		color.LightYellow.Sprintf("     `-'       `--'\n")
+
 }

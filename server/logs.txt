@@ -7,3 +7,9 @@
 [2024-07-02 09:37:39][CallMeMasterBB]: Hey hello
 [2024-07-02 09:37:44][CallMeMasterBB]: plop
 [2024-07-02 09:37:50][MrZpad]: hey
+[2024-07-02 10:02:29][CallMe]: plop
+[2024-07-02 10:20:28][Pierre]: Hello
+[2024-07-02 10:42:24][Pierre]: Pierre
+[2024-07-02 10:44:28][[93mPierre[0m]: Hello
+[2024-07-02 10:45:16][[35mPierre[0m]: Hello
+[2024-07-02 10:47:52][[35mPierre[0m]: Hello
